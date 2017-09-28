@@ -17,6 +17,8 @@ services:
     networks:
       - db_nw
       - web_nw
+    labels:
+      com.ameyalokare.type: web
     depends_on:
       - db
   nginx:
@@ -27,6 +29,8 @@ services:
       - ./conf.d:/etc/nginx/conf.d
     networks:
       - web_nw
+    labels:
+      com.ameyalokare.type: nginx
     depends_on: 
       - flaskapp
 networks:
